@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-primary: 99 102 241;
+  --color-success: 34 197 94;
+  --color-warning: 251 146 60;
+  --color-danger: 239 68 68;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  color: #171717;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern gradient mesh background with animated orbs */
+.app-bg {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.app-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(34, 211, 238, 0.3) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.app-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(100px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -50px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+}
+
+/* Smooth pulse animation for timer */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+/* Glow effect */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
+  }
+}
