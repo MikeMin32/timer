@@ -15,4 +15,4 @@ export interface PomodoroState {
   completedSessions: number;
 }
 
-export type { PomodoroSettings, SessionType };
+

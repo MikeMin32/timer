@@ -8,7 +8,7 @@ export type TimerStatus = "idle" | "running" | "paused";
 
 const initialSettings = load("pomodoro_settings", DEFAULT_SETTINGS);
 
-let timer: any = null;
+
 
 function getSessionDurationSeconds(type: SessionType, s: PomodoroSettings): number {
   if (type === "work") return s.workDuration;
