@@ -33,12 +33,13 @@ jobs:
       - name: Build & push image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./pomodoro-timer
+          file: ./pomodoro-timer/Dockerfile
           push: true
           tags: |
             ${{ steps.img.outputs.IMAGE }}:latest
             ${{ steps.img.outputs.IMAGE }}:sha-${{ github.sha }}
-            
+
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push
