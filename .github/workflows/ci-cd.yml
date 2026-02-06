@@ -22,7 +22,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: mikemin32
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build & push image
@@ -55,4 +55,3 @@ jobs:
             docker compose pull
             docker compose up -d
             docker image prune -f
-  
